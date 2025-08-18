@@ -1,9 +1,5 @@
-# Generative Jazz Musik
+# Generative Jazz Licks
 * GDKI WiSe 22/23
-* Gruppe A:
-    * Alexandra Schnakenberg - 
-    * Fabien Manger - 
-    * Peer Schliephacke - 5180417
 
 ## Kurzbeschreibung
 Im Rahmen der Prüfungsleistung für das Modul 'Grundlagen der Künstlichen Intelligenz' stellt dieses Projekt ein rekurrentes Neuronales Netz dar, welches genutzt wird um generative Jazz Musik zu schaffen.
