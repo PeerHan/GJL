@@ -1,0 +1,10 @@
+os
+music21
+numpy
+keras
+glob
+pickle
+scipy
+matplotlib
+seaborn
+pandas

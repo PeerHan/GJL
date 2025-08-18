@@ -1,0 +1,10 @@
+data
+generated_midi
+Sample_Audios
+weights
+stored
+**/__pycache__
+.ipynb_checkpoints
+.DS_Store
+documents
+imgs
