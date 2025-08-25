@@ -1,48 +1,49 @@
-# Generative Jazz Licks
-* GDKI WiSe 22/23
+# Generative Jazz Licks  
+* GDKI WiSe 22/23  
 
-## Kurzbeschreibung
-Im Rahmen der Prüfungsleistung für das Modul 'Grundlagen der Künstlichen Intelligenz' stellt dieses Projekt ein rekurrentes Neuronales Netz dar, welches genutzt wird um generative Jazz Musik zu schaffen.
-Die generative Jazz Musik wird dabei als sogenanntes Jazz Lick generiert. Ein Jazz Lick beschreibt ferner eine kurze Phrasologie über ein kadenzielles Harmonie Schema. Derartige Jazz Licks werden somit für improvisationen verwendet und können in vielfältiger Form auftauchen. Im Rahmen dieses Projekts werden drei taktige II-V-I Jazz Licks in Dur generiert.
-Das Projekt geht damit der zentralen Fragestellung nach, ob ein Neuronales Netz in der Lage ist neue, akzeptabel klingende Jazz Licks zu generieren. Diese werden in diversen Analysen/Metriken validiert.
+## Short Description  
+As part of the final examination for the module *Foundations of Artificial Intelligence*, this project implements a recurrent neural network that is used to create generative jazz music.  
+The generative jazz music is produced in the form of so-called *jazz licks*. A jazz lick refers to a short phrase over a cadential harmonic scheme. Such jazz licks are commonly used for improvisation and can appear in many different forms. Within the scope of this project, three-bar II-V-I jazz licks in major are generated.  
+The project addresses the central question of whether a neural network is capable of generating new, acceptable-sounding jazz licks. These are validated using various analyses and metrics.  
 
-## Installation
-Zur Verwendung des Repositorys wird eine funktionierende jupyter Umgebung vorrausgesetzt. 
-Ferner sind diverse Python Module notwendig, die mithilfe der 'requirements.txt' und pip installiert werden können:
+## Installation  
+To use the repository, a functioning Jupyter environment is required.  
+Furthermore, several Python modules are needed, which can be installed with the help of the *requirements.txt* file and pip:  
 ```
 pip install -r requirements.txt
 ```
-Zu dem ist eine aktuelle Version der Software 'Musescore3' notewendig, um die Midi-Dateien abzuspielen (https://musescore.com/)
+In addition, a current version of the software *Musescore3* is required to play the MIDI files (https://musescore.com/).  
 
-## Ausführung
-* Das Projekt wird sequenziell über 3 Verschiedene Notebooks ausgeführt
-* Insgesamt werden 3 verschiedene Modelle trainiert, die auf verschiedenen Jazz Skalen und Tonmaterial basieren (Diatonisch, alteriert und beides zusammen) - daraus folgt die 3-fache Anzahl an gespeicherten Daten und Vorgängen.
-* Die Notebooks erfüllen folgenden Zweck:
-    * 1_LSTM_generated_weights: Dient zum Einlesen und Prozessieren der Trainingsdaten (Midi-format) in ein adäquates Format, das vom Netzwerk eingelesen werden kann. Letztlich werden die Netzwerke mit den Trainingsdaten trainiert und die Gewichte gespeichert. Der Trainingsvorgang umfasst diverse Hyperparameter die nach belieben gesetzt werden können.
-    * 2_LSTM_generate_lick: Dient zum generieren von neuen Jazz Licks. Dabei werden die zuvor trainierten Gewichte genutzt um darauf basierend Vorhersagen zu machen. Analog existieren diverse Hyperparameter mit denen der Generierungs bzw Vorhersageablauf reguliert werden kann.
-    * 3_Modell_Evaluation_and_Validation: Dient lediglich zum Vergleich der generierten Jazz Licks mit den Trainingsdaten. Ziel ist es die Verallgemeinerungsfähigkeit sowie die Mustererkennung der Netzwerk-Modelle bewerten zu können. Dabei werden neben einem Turing-Test ähnlichen Ansatz statistische sowie Musikwissenschaftliche Analysen getätigt.
+## Execution  
+* The project is executed sequentially across three different notebooks.  
+* In total, three different models are trained, each based on different jazz scales and tonal material (diatonic, altered, and both combined). This results in three times the amount of stored data and processes.  
+* The notebooks serve the following purposes:  
+  * **1_LSTM_generated_weights**: Used to read and process the training data (MIDI format) into a suitable format for the network. The networks are then trained with the training data, and the weights are saved. The training process involves various hyperparameters that can be set as desired.  
+  * **2_LSTM_generate_lick**: Used to generate new jazz licks. The previously trained weights are used to make predictions. Similarly, various hyperparameters can be set to control the generation/prediction process.  
+  * **3_Model_Evaluation_and_Validation**: Used solely to compare the generated jazz licks with the training data. The goal is to evaluate the generalization ability and pattern recognition of the network models. In addition to a Turing-test-like approach, statistical and musicological analyses are conducted.  
 
-## Datei-Übersicht
-* Folgende Dateien und Ordner gehören zu dem Projekt:
-Ordner:
-    * Sample_Audios: Beinhaltet die Audio Dateien die für den Turing-Test ähnlichen Ansatz genommen werden. Die Audio Dateien werden mit Musescore erstellt (aus den Midi Dateien) und mit einer adäquaten Harmonischen Begleitung sowie einer ternären Interpretation des Rhytmus (Swing) ergänzt. Die Audio Dateien werden zufällig gezogen (10 insgesamt = 5 Originale Licks + 5 generierte Licks)
-    * data: Beinhaltet alle digitalisierten Trainingsdaten - gefiltert in alteriert und diatonisch
-    * generated_midi: Beinhaltet alle generierten Licks (aus 2_LSTM_generate_lick) unterteilt in Ordnern mit der Epochenanzahl. Alle neu generierten Licks werden in dem Ordner mit der jeweiligen Skala gespeichert (alteriert, diatonisch oder beide)
-    * imgs: Beinhaltet Bilder über die Architektur oder aus der Evaluierung/Validierung
-    * stored: Beinhaltet Informationen im Binärformat (aus 1_LSTM_generated_weights) um effizient Daten zwischen den Notebooks zu übertragen. Die Binär-Dateien werden Skalenspezifisch den jeweiligen Ordnern zugeordnet.
-    * weights: Speichert Checkpoints (wenn Optionaler Parameter gesetzt ist) und die trainierten Gewichte aus 1_LSTM_generated_weights um auf Grundlage dessen Licks zu generieren (in 2_LSTM_generate_lick)
-    * documents: Beinhaltet die Dokumentation, PowerPointPräsentation und das Poster im pdf Format
-* utils enthält ausgelagerten Python code der durch implementierte Funktionen zur Bearbeitung und Programmieren der eigentlichen Ziele beschrieben wird. Durch die ausgelagerten Funktionen werden Schnittstellen gebildet und die Ordnung der Notebooks aufrecht gehalten:
-    * evaluate.py : Beinhaltet Methoden zum generieren von Grafiken für die Validierung
-    * jazz_lstm.py : Beinhaltet die Netzwerkarchitektur
-    * midi_generation.py : Beinhaltet Funktionen zur Generierung der neuen Jazz Licks im Midi Format
-    * midi_tools.py : Beinhaltet Funktionen zum Einladen und Transformieren der Trainingsdaten
-    * check_overfitting.py : Überprüft ob ein generiertes Jazz-Lick einfach aus den Trainingsdaten kopiert wurde, in dem jede Notensequenz aus dem Ordner mit jeder Notensequenz aus den Trainingsdaten verglichen wird (Rhythmus wird ignoriert). Dabei werden durch geeigente Visualisierungen der Anteil an überangepassten Licks aufgezeigt sowie die Namen der validen Licks angezeigt (not overfitted).
-* Notebooks: Siehe Ausführung
+## File Overview  
+* The following files and folders belong to the project:  
+  **Folders**:  
+  * **Sample_Audios**: Contains the audio files used for the Turing-test-like approach. The audio files are created with Musescore (from the MIDI files) and supplemented with suitable harmonic accompaniment and a ternary rhythm interpretation (swing). A total of 10 audio files are randomly selected (5 original licks + 5 generated licks).  
+  * **data**: Contains all digitized training data – filtered into altered and diatonic.  
+  * **generated_midi**: Contains all generated licks (from *2_LSTM_generate_lick*), organized in folders by the number of epochs. All newly generated licks are stored in the corresponding scale folder (altered, diatonic, or both).  
+  * **imgs**: Contains images of the architecture or from the evaluation/validation.  
+  * **stored**: Contains information in binary format (from *1_LSTM_generated_weights*) for efficient data transfer between notebooks. The binary files are stored in scale-specific folders.  
+  * **weights**: Stores checkpoints (if the optional parameter is set) and the trained weights from *1_LSTM_generated_weights*, which are then used to generate licks in *2_LSTM_generate_lick*.  
+  * **documents**: Contains the documentation, PowerPoint presentation, and the poster in PDF format.  
 
-## Notiz
-* Die Fertigen Audio Dateien werden mit einer maginalen musescore-generierten Begleitung (cm9-F7-Bbmaj9) und der Jazztypischen Rhytmus-Interpretation, dem Swing, ergänzt um die Licks in einer realistischen Klangumgebung einzubetten.  
-* Die Python Dateien wurden ausführlich dokumentiert und jeweils mit einem Docstring ergänzt sodass innerhalb des Notebooks schnell eine Erklärung angezeigt werden kann
-* Die Notebooks enthalten zusätzliche Informationen über das Ziel der jeweiligen Notebooks
-* Die Dokumentationssprache der Notebooks/Python dateien ist englisch, da im Sinne vieler Konventionen englisch als Variablennamen genutzt wird und damit der Python code sprachlich konsitent sein soll
-# GJL
+* **utils** contains outsourced Python code with implemented functions for handling and programming the actual tasks. These outsourced functions provide interfaces and help maintain the organization of the notebooks:  
+  * **evaluate.py**: Contains methods for generating graphics for validation.  
+  * **jazz_lstm.py**: Contains the network architecture.  
+  * **midi_generation.py**: Contains functions for generating new jazz licks in MIDI format.  
+  * **midi_tools.py**: Contains functions for loading and transforming the training data.  
+  * **check_overfitting.py**: Checks whether a generated jazz lick was simply copied from the training data by comparing each note sequence from the generated folder with every note sequence from the training data (ignoring rhythm). Suitable visualizations show the proportion of overfitted licks and list the names of valid licks (not overfitted).  
+
+* **Notebooks**: See *Execution*.  
+
+## Notes  
+* The finished audio files are supplemented with a minimal Musescore-generated accompaniment (Cm9–F7–Bbmaj9) and the jazz-typical rhythmic interpretation, *swing*, in order to embed the licks in a realistic sound environment.  
+* The Python files are thoroughly documented and include a docstring so that explanations can quickly be displayed within the notebook.  
+* The notebooks contain additional information about the goals of each notebook.  
+* The documentation language of the notebooks/Python files is English, since, in accordance with many conventions, English variable names are used, ensuring linguistic consistency of the Python code.  
