@@ -1,5 +1,5 @@
 # Generative Jazz Licks  
-* Foundations of Artificial Intelligence Winter Semester 2022/2023
+* Foundations of Artificial Intelligence Winter Semester 2022/2023 (THM)
 
 ## Short Description  
 As part of the final examination for the module *Foundations of Artificial Intelligence*, this project implements a recurrent neural network that is used to create generative jazz music.  
@@ -47,3 +47,9 @@ In addition, a current version of the software *Musescore3* is required to play 
 * The Python files are thoroughly documented and include a docstring so that explanations can quickly be displayed within the notebook.  
 * The notebooks contain additional information about the goals of each notebook.  
 * The documentation language of the notebooks/Python files is English, since, in accordance with many conventions, English variable names are used, ensuring linguistic consistency of the Python code.  
+
+## Docs
+The folder docs contains documents such as :
+* Questionnaire used for evaluation
+* Poster/Presentation/Documentation as deliverables for the project
+* Project Proposal as requirement for the project
