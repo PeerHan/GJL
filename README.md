@@ -1,5 +1,5 @@
 # Generative Jazz Licks  
-* GDKI WiSe 22/23  
+* Foundations of Artificial Intelligence Winter Semester 2022/2023
 
 ## Short Description  
 As part of the final examination for the module *Foundations of Artificial Intelligence*, this project implements a recurrent neural network that is used to create generative jazz music.  
